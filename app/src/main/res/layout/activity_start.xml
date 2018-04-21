@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start A New Chess Game!"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="74dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="395dp"
+        android:layout_height="517dp"
+        android:background="#1b3f6b"
+        app:srcCompat="@drawable/start"
+        tools:layout_editor_absoluteX="-11dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/view_rcd_games"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Recorded Games!"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="404dp" />
+
+</android.support.constraint.ConstraintLayout>
