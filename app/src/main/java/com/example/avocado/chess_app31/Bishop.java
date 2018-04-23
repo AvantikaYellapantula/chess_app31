@@ -3,9 +3,8 @@
  * Rahil Chertara
  * Avantika Yellapantula
  */
-package model;
+package com.example.avocado.chess_app31;
 
-import utility.PairCoordinate;
 
 
 

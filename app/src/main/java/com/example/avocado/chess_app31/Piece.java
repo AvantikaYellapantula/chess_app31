@@ -3,27 +3,26 @@
  * Rahil Chertara
  * Avantika Yellapantula
  */
-package model;
+package com.example.avocado.chess_app31;
 
 
-import utility.PairCoordinate;
+import java.io.Serializable;
 
+public abstract class Piece implements Serializable{
 
-
-public abstract class Piece {
-
-
-/*
- * This decides how exactly the pieces can move
- * 
- * First of all, there are two main players, White and black.
- * So no matter which piece is moving, there needs to be a player_color
- *  --> That can be a boolean value
- *  A piece can only move to a spot given two options:
- *  --> if that spot is empty
- *  --> kill shot
- *  Both can be represented by boolean values 
- * */
+	private static final long serialVersionUID = 3569870795027701054L;
+	/*
+    /*
+     * This decides how exactly the pieces can move
+     *
+     * First of all, there are two main players, White and black.
+     * So no matter which piece is moving, there needs to be a player_color
+     *  --> That can be a boolean value
+     *  A piece can only move to a spot given two options:
+     *  --> if that spot is empty
+     *  --> kill shot
+     *  Both can be represented by boolean values
+     * */
 	public boolean color;
 	public String type;
 	

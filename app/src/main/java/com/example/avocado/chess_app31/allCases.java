@@ -3,7 +3,7 @@
  * Rahil Chertara
  * Avantika Yellapantula
  */
-package model;
+package com.example.avocado.chess_app31;
 
 public class allCases {
 	public boolean isPromoting = false; // sort of done 
@@ -11,7 +11,7 @@ public class allCases {
 	public boolean pieceInPath = false; //think done 
 	
 	  //not done wtf is this 
-	
+
     public boolean isCapturing = false; //for pawns 
 	
 	public boolean isFirstMove = false;// done i think 
