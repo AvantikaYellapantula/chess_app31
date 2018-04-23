@@ -11,9 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start A New Chess Game!"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="74dp" />
-
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="404dp"/>
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="395dp"
