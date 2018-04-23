@@ -3,7 +3,7 @@
  * Rahil Chertara
  * Avantika Yellapantula
  */
-package model;
+package com.example.avocado.chess_app31;
 
 public class allCases {
 	public boolean isPromoting = false; // sort of done 

@@ -5,16 +5,15 @@
  */
 
 
-package controller;
+package com.example.avocado.chess_app31;
 
-import model.Board;
-import utility.PairCoordinate;
+
 
 public class controllerView {
 
 	
 	public Board board;
-	
+	Board copyBoard;
 	public boolean isGameOver;
 	
 	
@@ -35,50 +34,103 @@ public class controllerView {
 	    
 	}
 	*/
-	
-	/**
-	 * This method gives the 'ok' to make the move. It checks whether the coordinates are within bounds, and uses PairCoordinate to check the movements of the piece.
-	 *
-	 * @param char file, char rank, char fileEnd, char rankEnd, String promotion
-	 * @return String boolean whether the move is valid or not
-	 */
+
 	public boolean doMove(char file, char rank, char fileEnd, char rankEnd, String promotion) {
 		boolean isValidMove=false;
-	
-			PairCoordinate start=new PairCoordinate(file,rank);
-			
-			PairCoordinate end= new PairCoordinate(fileEnd,rankEnd);
+
+		PairCoordinate start=new PairCoordinate(file,rank);
+
+		PairCoordinate end= new PairCoordinate(fileEnd,rankEnd);
 			/*
 			 CHECK TO SEE IF THESE COORDINATES ARE WITHIN BOUND!!!!
 			 */
-			if(start.m_file<0||start.m_file>7||start.m_rank<0||start.m_rank>7||
-			   end.m_file<0||end.m_file>7||end.m_rank<0||end.m_rank>7){
-			
-			//	System.out.println("Invalid Coordinate out of bounds");
-				return false;
-				//Maybe throw some exception 
-	
-				
-			}
+		if(start.m_file<0||start.m_file>7||start.m_rank<0||start.m_rank>7||
+				end.m_file<0||end.m_file>7||end.m_rank<0||end.m_rank>7){
 
-			
-			if(start!=null && end!=null ) {
- 				isValidMove=board.boardMove(start, end, promotion);
+			//	System.out.println("Invalid Coordinate out of bounds");
+			return false;
+			//Maybe throw some exception
+
+
+		}
+
+
+
+
+		if(start!=null && end!=null ) {
+			isValidMove=board.boardMove(start, end, promotion);
+		}
+		if(start!=null && end!=null&&promotion!=null) {
+			if(promotion.equals("AI")) {
+				isValidMove=copyBoard.boardMove(start, end, null);
 			}
-			
-			
-			
-			
-			
+		}
+
+
+
+
+
 		return isValidMove;
-			
-		
+
+
+	}
+
+
+	public boolean aiMove() {
+
+		boolean isValidMove=false;
+		String promo=null;
+		//PairCoordinate start=new PairCoordinate(file,rank);
+
+
+
+
+
+		//PairCoordinate end= new PairCoordinate(fileEnd,rankEnd);
+		char[] letters= {'a','b','c','d','e','f','g','h'};
+		char[] nums= {'1','2','3','4','5','6','7','8'};
+
+		for(int i=0;i<8;i++) {
+			if(isValidMove==true) {
+				break;
+			}
+			for(int j=0;j<8;j++) {
+				if(isValidMove==true) {
+					break;
+				}
+				for(int k=0;k<8;k++){
+					if(isValidMove==true) {
+						break;
+					}
+					for(int m=0;m<8;m++) {
+
+						copyBoard=this.board.copyBoard();
+						isValidMove= doMove(letters[i], nums[j], letters[k], nums[m], "AI");
+
+
+						if(isValidMove==true) {
+							board=copyBoard;//hmmm //otherwise chnage board to this shit
+							break;
+						}
+
+
+					}
+				}
+			}
+		}
+
+
+
+
+		return true;
+
+
 	}
 	
 	/**
 	 * this method gets the board
 	 *
-	 * @param none
+	 * @param
 	 * @return string/toString
 	 */
 	
@@ -94,7 +146,7 @@ public class controllerView {
 	/**
 	 * this method tells whose turn it is to play
 	 *
-	 * @param none
+	 * @param
 	 * @return type board/whose turn it is to play
 	 */
 	public boolean isWhiteTurn() {

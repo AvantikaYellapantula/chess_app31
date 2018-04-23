@@ -3,16 +3,14 @@
  * Rahil Chertara
  * Avantika Yellapantula
  */
-package model;
+package com.example.avocado.chess_app31;
 
 
-import utility.PairCoordinate;
-import utility.*;
+import java.io.Serializable;
 
-
-public class Tile {
+public class Tile implements Serializable{
 	//using vector type of system that requires coordinate and piece
-	
+	private static final long serialVersionUID = 4143935150417416554L;
 	public PairCoordinate coordinate;
 	public Piece piece;
 	
