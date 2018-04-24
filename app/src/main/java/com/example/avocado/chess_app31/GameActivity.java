@@ -15,7 +15,7 @@ public class GameActivity extends AppCompatActivity {
     static String fileName = "file";
     private static GameList gamelist;
     public boolean firstSelect=true;
-    public String strInput;
+    public String strInput="";
 
    public ImageView currTile;
    public ImageView targetTile;
@@ -52,12 +52,13 @@ public class GameActivity extends AppCompatActivity {
             }
 
             String tileSpot = getResources().getResourceName(currTile.getId());//this will give us a3
-            strInput = strInput += tileSpot; //put this in the input string
+            strInput = strInput += tileSpot.substring(tileSpot.length()-2); //put this in the input string
             firstSelect = false;//flick switch
-        } else {
+        }
+        else {
             targetTile = (ImageView) selectTile;
             String tileSpot = getResources().getResourceName(targetTile.getId());
-            strInput = strInput + " " + tileSpot;//get full input string
+            strInput = strInput + " " + tileSpot.substring(tileSpot.length()-2);//get full input string
             firstSelect = true;//flick switch
 
 
@@ -183,6 +184,13 @@ public class GameActivity extends AppCompatActivity {
                 gameView.printBoard();
                 gameView.printPrompt();
 
+                if(gameController.board.whiteTurn==true) {
+                    Toast.makeText(GameActivity.this, "Black's Move",
+                            Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(GameActivity.this, "White's Move",
+                            Toast.LENGTH_SHORT).show();
+                }
 
                 // String strInput=handleInput();
                 boolean noMistake = false;
@@ -212,18 +220,20 @@ public class GameActivity extends AppCompatActivity {
 
 
                     if (noMistake == false) {
-
-                        gameView.printBoard();
-                        gameView.printPrompt();
-
-                        // targetTile.setImageDrawable(currTile.getDrawable());
-                        //currTile.setImageDrawable(null);
-
-
-                    } else {
                         Toast.makeText(GameActivity.this, "Illegal Move",
                                 Toast.LENGTH_SHORT).show();
                         firstSelect = true;
+                       // gameView.printBoard();
+                        gameView.printPrompt();
+                        return;
+                      //  targetTile.setImageDrawable(currTile.getDrawable());
+                        // currTile.setImageDrawable(null);
+                        //return;
+
+                    } else {
+                        targetTile.setImageDrawable(currTile.getDrawable());
+                        currTile.setImageDrawable(null);
+                        return;
 
                     }
                     //	 }
