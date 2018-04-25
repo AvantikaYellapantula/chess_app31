@@ -14,6 +14,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="4dp"
+        android:onClick="handleInput"
         app:layout_constraintBottom_toTopOf="@+id/board_grid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/home_button"
@@ -29,6 +30,7 @@
         android:layout_marginRight="78dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
+        android:onClick="handleInput"
         app:layout_constraintEnd_toStartOf="@+id/home_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +43,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
+        android:onClick="handleInput"
         android:text="Draw"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,6 +55,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:onClick="handleInput"
         android:text="Resign"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -63,6 +67,7 @@
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
         android:layout_marginTop="5dp"
+        android:onClick="handleInput"
         app:layout_constraintEnd_toStartOf="@+id/undo_button"
         app:layout_constraintStart_toEndOf="@+id/ai_button"
         app:layout_constraintTop_toTopOf="parent"
@@ -86,8 +91,8 @@
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/board_grid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="362dp"
+        android:layout_height="357dp"
         android:layout_marginBottom="73dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
@@ -97,75 +102,81 @@
         app:columnCount="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:rowCount="8">
 
         <ImageView
-            android:id="@+id/blackRook"
+            android:id="@+id/a8"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="0"
             app:layout_row="0"
             app:srcCompat="@drawable/brook" />
 
         <ImageView
-            android:id="@+id/blackKnight"
+            android:id="@+id/b8"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:contentDescription="TODO"
+            android:onClick="handleInput"
             app:layout_column="1"
             app:layout_row="0"
             app:srcCompat="@drawable/bkinght" />
 
         <ImageView
-            android:id="@+id/blackBishop"
+            android:id="@+id/c8"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginEnd="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:layout_marginStart="0dp"
+            android:onClick="handleInput"
             android:translationX="2dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/blackKnight"
+            app:layout_constraintStart_toEndOf="@+id/b8"
             app:srcCompat="@drawable/bbishop"
             tools:layout_editor_absoluteX="104dp"
             tools:layout_editor_absoluteY="78dp" />
 
         <ImageView
-            android:id="@+id/blackQueen"
+            android:id="@+id/d8"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bqueen" />
 
         <ImageView
-            android:id="@+id/blackKing"
+            android:id="@+id/e8"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bking" />
 
         <ImageView
-            android:id="@+id/blackBishop2"
+            android:id="@+id/f8"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bbishop" />
 
         <ImageView
-            android:id="@+id/blackKnight2"
+            android:id="@+id/g8"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginRight="0dp"
+            android:onClick="handleInput"
             app:layout_column="6"
             app:layout_row="0"
             app:srcCompat="@drawable/bkinght" />
 
         <ImageView
-            android:id="@+id/blackRook2"
+            android:id="@+id/h8"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="7"
             app:layout_row="0"
             app:srcCompat="@drawable/brook"
@@ -173,166 +184,446 @@
             tools:layout_editor_absoluteY="78dp" />
 
         <ImageView
-            android:id="@+id/bp1"
+            android:id="@+id/a7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp7"
+            android:id="@+id/b7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp6"
+            android:id="@+id/c7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp5"
+            android:id="@+id/d7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp4"
+            android:id="@+id/e7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp3"
+            android:id="@+id/f7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp2"
+            android:id="@+id/g7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/bp8"
+            android:id="@+id/h7"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/bpawn" />
 
         <ImageView
-            android:id="@+id/wrook1"
+            android:id="@+id/a1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="0"
             app:layout_row="7"
             app:srcCompat="@drawable/wrook" />
 
         <ImageView
-            android:id="@+id/whiteKnight1"
+            android:id="@+id/b1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wknight" />
 
         <ImageView
-            android:id="@+id/whiteBishop1"
+            android:id="@+id/c1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wbishop" />
 
         <ImageView
-            android:id="@+id/whiteQueen"
+            android:id="@+id/d1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wqueen" />
 
         <ImageView
-            android:id="@+id/whiteKing"
+            android:id="@+id/e1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wking" />
 
         <ImageView
-            android:id="@+id/whiteBishop2"
+            android:id="@+id/f1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wbishop" />
 
         <ImageView
-            android:id="@+id/whiteKnight2"
+            android:id="@+id/g1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wknight" />
 
         <ImageView
-            android:id="@+id/wrook2"
+            android:id="@+id/h1"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:srcCompat="@drawable/wrook" />
 
         <ImageView
-            android:id="@+id/wp1"
+            android:id="@+id/a2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="0"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp2"
+            android:id="@+id/b2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="1"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp3"
+            android:id="@+id/c2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="2"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp4"
+            android:id="@+id/d2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="3"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp5"
+            android:id="@+id/e2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="4"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp6"
+            android:id="@+id/f2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="5"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp7"
+            android:id="@+id/g2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="6"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
 
         <ImageView
-            android:id="@+id/wp8"
+            android:id="@+id/h2"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:onClick="handleInput"
             app:layout_column="7"
             app:layout_row="6"
             app:srcCompat="@drawable/wpawn" />
+
+        <ImageView
+            android:id="@+id/a6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/b6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/c6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="2"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/d6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="3"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/e6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="4"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/f6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="5"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/g6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="6"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/h6"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="7"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/a5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="0"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/b5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="1"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/c5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="2"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/d5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="3"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/e5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="4"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/f5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="5"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/g5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="6"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/h5"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="7"
+            app:layout_row="3" />
+
+        <ImageView
+            android:id="@+id/a4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="0"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/b4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="1"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/c4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="2"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/d4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="3"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/e4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="4"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/f4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="5"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/g4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="6"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/h4"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="7"
+            app:layout_row="4" />
+
+        <ImageView
+            android:id="@+id/a3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="0"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/b3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="1"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/c3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="2"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/d3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="3"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/e3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="4"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/f3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="5"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/g3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="6"
+            app:layout_row="5" />
+
+        <ImageView
+            android:id="@+id/h3"
+            android:layout_width="45dp"
+            android:layout_height="44dp"
+            android:onClick="handleInput"
+            app:layout_column="7"
+            app:layout_row="5" />
 
     </android.support.v7.widget.GridLayout>
 

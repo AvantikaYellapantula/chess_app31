@@ -4,6 +4,7 @@
 package com.example.avocado.chess_app31;
 
 
+import android.widget.Toast;
 
 public class chess_board_view {
 
@@ -129,6 +130,7 @@ public class chess_board_view {
 
             System.out.println();
             System.out.print("White's Move: ");
+
         }
 
 

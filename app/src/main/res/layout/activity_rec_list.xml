@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,39 +7,53 @@
 
     <ListView
         android:id="@+id/rec_list"
-        android:layout_width="368dp"
+        android:layout_width="0dp"
         android:layout_height="350dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:background="#c3e6f2"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/date_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:text="Date Sort"
         app:layout_constraintBottom_toTopOf="@+id/rec_list"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/title_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:text="Title Sort"
         app:layout_constraintBottom_toTopOf="@+id/rec_list"
-        tools:layout_editor_absoluteX="227dp" />
+        app:layout_constraintEnd_toEndOf="@+id/rec_list" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginBottom="36dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginLeft="59dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginStart="59dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="List of Recorded Games"
         app:layout_constraintBottom_toTopOf="@+id/title_sort"
-        tools:layout_editor_absoluteX="59dp" />
+        app:layout_constraintEnd_toEndOf="@+id/title_sort"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
