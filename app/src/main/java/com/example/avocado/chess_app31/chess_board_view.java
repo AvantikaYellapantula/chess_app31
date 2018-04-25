@@ -33,7 +33,9 @@ public class chess_board_view {
         if(draw==true) {
             if(input.indexOf("draw")!=-1) {
                 System.out.println("draw");
-                System.exit(0);
+              //  System.exit(0);
+                CV.isGameOver=true;
+                return true;
             }
             else {
                 this.draw=false;//they did not accept the draw!
@@ -42,17 +44,24 @@ public class chess_board_view {
 
         if(input.indexOf("draw?")!=-1) {
             this.draw=true;
+           // return true;
         }
 
 
         if (input.equals("resign")) {
             if(CV.board.whiteTurn==true) {
+                CV.isGameOver=true;
+                CV.whiteResigned=true;
                 System.out.print("Black wins");
-                System.exit(0);
+               // System.exit(0);
+                return true;
             }
             else {
+                CV.isGameOver=true;
+                CV.blackResigned=true;
                 System.out.println("White wins");
-                System.exit(0);
+                //System.exit(0);
+                return true;
             }
             //	System.out.println(this.vc.isBlackTurn() ? "White wins!" : "Black wins!");
             //	this.game_board.resign();
@@ -68,9 +77,10 @@ public class chess_board_view {
 
             return CV.aiMove();
         }
-        if (input.length() == 5 || this.draw==true){
+        if (input.length() == 5 || input.contains("draw?")){
             //this.draw=false;
             //that means its the standard input i.e a2 a4 and process the draw
+
             char rankStart = input.charAt(1); char rankEnd = input.charAt(4);
             //row
             char fileStart = input.charAt(0); char fileEnd = input.charAt(3);
@@ -101,6 +111,7 @@ public class chess_board_view {
         }
 
         else {
+
             return true;
         }
 

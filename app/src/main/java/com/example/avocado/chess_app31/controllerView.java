@@ -15,6 +15,8 @@ public class controllerView {
 	public Board board;
 	Board copyBoard;
 	public boolean isGameOver;
+	public boolean whiteResigned;
+	public boolean blackResigned;
 	
 	
 	public controllerView() {

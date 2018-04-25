@@ -704,6 +704,7 @@ public class Board {
 
 								return false;
 							} else {
+
 								allMoves.add(validMove);
 								this.turnPicker();
 
@@ -1146,7 +1147,7 @@ public class Board {
 		if(!(allMoves.size()>=1)) {
 
 			//System.out.print("nothing to undo");
-			return true;
+			return false;
 		}
 
 
@@ -1163,6 +1164,8 @@ public class Board {
 
 		this.game_board[lastMove.endTile.coordinate.m_file][lastMove.endTile.coordinate.m_rank].piece=lastMove.endPiece;
 		this.game_board[lastMove.startTile.coordinate.m_file][lastMove.startTile.coordinate.m_rank].piece=lastMove.movingPiece;
+
+
 
 		turnPicker();
 

@@ -43,7 +43,6 @@
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:onClick="handleInput"
         android:text="Draw"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -55,7 +54,6 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:onClick="handleInput"
         android:text="Resign"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -626,5 +624,23 @@
             app:layout_row="5" />
 
     </android.support.v7.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/turnLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="White's Move"
+        tools:layout_editor_absoluteX="151dp"
+        tools:layout_editor_absoluteY="463dp"
+        tools:text="White's Move" />
+
+    <Button
+        android:id="@+id/acceptDrawBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" "
+        tools:layout_editor_absoluteX="134dp"
+        tools:layout_editor_absoluteY="447dp"
+        tools:text="acceptDraw" />
 
 </android.support.constraint.ConstraintLayout>
