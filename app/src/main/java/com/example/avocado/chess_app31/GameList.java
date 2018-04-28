@@ -14,7 +14,7 @@ public class GameList implements Serializable{
     private static final long serialVersionUID = 9098326388219881911L;
 
     public static final String storeFile = "users.store";
-    public static final String storeDir = "store";
+   // public static final String storeDir = "src/store";
 
     List<Game> allGames;
 
@@ -34,7 +34,7 @@ public class GameList implements Serializable{
 
         ObjectOutputStream output = null;
         try {
-            output = new ObjectOutputStream(new FileOutputStream(storeDir+"/"+storeFile));
+            output = new ObjectOutputStream(new FileOutputStream(storeFile));
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -55,7 +55,7 @@ public class GameList implements Serializable{
         }
     }
     public static GameList getData() throws FileNotFoundException, IOException {
-        FileInputStream saveFile=new FileInputStream(storeDir+"/"+storeFile);
+        FileInputStream saveFile=new FileInputStream(storeFile);
 
         if(saveFile.available()==0) {
             GameList userlist= new GameList();
