@@ -5,6 +5,7 @@ package com.example.avocado.chess_app31;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -42,11 +43,17 @@ public class storeActivity extends AppCompatActivity {
         gameList = (GameList) getIntent().getSerializableExtra("gameList");
 
 
-        Button yesButton = (Button) findViewById(R.id.yesButton);
+
+
+        Button yesButton = (Button) findViewById(R.id.yes_button);
         yesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextInputEditText nameOfGame= (TextInputEditText)findViewById(R.id.nameOfGame);
+                String name="";
+                name=nameOfGame.getText().toString().trim();//i think this will give string
 
+                game.Title=name; //set name to what user gives
                 gameList.getGameList().add(game);
 
                 try {
@@ -66,7 +73,7 @@ public class storeActivity extends AppCompatActivity {
             }
         });
 
-        Button noButton = (Button) findViewById(R.id.noButton);
+        Button noButton = (Button) findViewById(R.id.no_button);
         noButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -615,6 +615,7 @@ public class Board {
 		Piece endPiece = endTile.piece;
 		Move validMove= new Move (movingPiece,endPiece,startTile,endTile);
 
+
 		if (movingPiece == null) {
 			// System.out.println("No piece to move is at this spot");
 			return false;

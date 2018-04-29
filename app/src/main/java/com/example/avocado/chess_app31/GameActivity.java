@@ -30,6 +30,7 @@ import static com.example.avocado.chess_app31.GameList.getData;
 public class GameActivity extends AppCompatActivity {
     final Context thisScreen = this;
     static String fileName = "file";
+
     private static GameList gamelist;
     private static Game game;
 
@@ -265,6 +266,12 @@ public class GameActivity extends AppCompatActivity {
 
     public void changeBoardImages(){
 
+        int l= gameController.board.allMoves.size()-1;
+        Move m=gameController.board.allMoves.get(l);
+
+        m.currTile=currTile;
+        m.targetTile=targetTile;
+
         targetTile.setImageDrawable(currTile.getDrawable());
         currTile.setImageDrawable(null);
 
@@ -353,18 +360,6 @@ public class GameActivity extends AppCompatActivity {
         }
 
     }
-    public void storeGame(){
-        //System.out.println("Enter a name for the game played");
-
-      //  String title = input.nextLine();
-
-
-
-        //gamelist.getGameList().add(game); //add the game to overall list of games
-
-       // GameList.Save(gamelist); //save this game to list of all games played
-    }
-
 
 
 
@@ -389,20 +384,20 @@ public class GameActivity extends AppCompatActivity {
         if(gameController.blackResigned==true){
             Toast.makeText(GameActivity.this, "Black resigned white wins",
                     Toast.LENGTH_SHORT).show();
-            return;
+            goToStoreScreen();
         }
 
         if(gameController.isGameOver==true&&gameView.draw==true){
             Toast.makeText(GameActivity.this, "Game is finished, with a draw",
                     Toast.LENGTH_SHORT).show();
-            return;
+            goToStoreScreen();
 
         }
 
         if (gameController.isGameOver == true) {
             Toast.makeText(GameActivity.this, "Game is finished",
                     Toast.LENGTH_SHORT).show();
-            return;
+            goToStoreScreen();
         }
 
         if (firstSelect == true) {
