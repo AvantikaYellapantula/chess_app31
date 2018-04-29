@@ -7,56 +7,35 @@
     tools:layout_editor_absoluteY="81dp">
 
 
-    <ImageButton
-        android:id="@+id/undo_button"
-        android:layout_width="64dp"
-        android:layout_height="65dp"
-        android:onClick="handleInput"
-        app:srcCompat="@drawable/undo"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="4dp" />
-
-    <ImageButton
-        android:id="@+id/ai_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="handleInput"
-        app:srcCompat="@drawable/ai"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="4dp" />
-
-    <Button
-        android:id="@+id/draw_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Draw"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="447dp" />
-
-    <Button
-        android:id="@+id/resign_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Resign"
-        tools:layout_editor_absoluteX="280dp"
-        tools:layout_editor_absoluteY="447dp" />
-
     <ImageView
         android:id="@+id/board"
-        android:layout_width="364dp"
-        android:layout_height="367dp"
-        app:srcCompat="@drawable/board"
-        tools:layout_editor_absoluteX="10dp"
-        tools:layout_editor_absoluteY="72dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/board" />
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/board_grid"
         android:layout_width="362dp"
-        android:layout_height="357dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="77dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="77dp"
         app:columnCount="8"
-        app:rowCount="8"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="77dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="8">
 
         <ImageView
             android:id="@+id/a8"
@@ -583,28 +562,33 @@
         android:id="@+id/turnLabel"
         android:layout_width="89dp"
         android:layout_height="30dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="28dp"
         android:text="White's Move"
-        app:layout_constraintEnd_toStartOf="@+id/undo_button"
-        app:layout_constraintStart_toEndOf="@+id/ai_button"
-        tools:layout_editor_absoluteY="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/board_grid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="White's Move" />
 
     <Button
-        android:id="@+id/acceptDrawBtn"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:text=" "
-        app:layout_constraintEnd_toStartOf="@+id/resign_button"
-        app:layout_constraintStart_toEndOf="@+id/draw_button"
-        tools:layout_editor_absoluteY="447dp"
-        tools:text="acceptDraw" />
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="12dp"
+        android:text="<< Prev"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/board_grid" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:layout_marginTop="8dp"
+        android:text="Next >>"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/board" />
 
 </android.support.constraint.ConstraintLayout>

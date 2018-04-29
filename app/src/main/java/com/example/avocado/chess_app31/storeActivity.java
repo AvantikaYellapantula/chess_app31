@@ -9,6 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+
 public class storeActivity extends AppCompatActivity {
     final Context thisScreen = this;
 
@@ -39,7 +48,17 @@ public class storeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 gameList.getGameList().add(game);
-                 GameList.Save(gameList);
+
+                try {
+                    FileOutputStream fis= openFileOutput("games.dat",Context.MODE_PRIVATE);
+                    ObjectOutputStream os = new ObjectOutputStream(fis);
+                    os.writeObject(gameList);
+                    os.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
 
                 Intent intent = new Intent(thisScreen, HomeActivity.class); //need to make a class for this

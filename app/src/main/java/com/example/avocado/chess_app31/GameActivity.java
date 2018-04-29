@@ -3,6 +3,7 @@ package com.example.avocado.chess_app31;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,10 +12,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.URI;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static com.example.avocado.chess_app31.GameList.getData;
 
 public class GameActivity extends AppCompatActivity {
     final Context thisScreen = this;
@@ -43,14 +54,23 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamescreen);
-        gamelist= new GameList();
+        gamelist = new GameList();
+
 
         try {
-            gamelist= GameList.getData();
+            FileInputStream fis= openFileInput("games.dat");
+            ObjectInputStream os = new ObjectInputStream(fis);
+           gamelist=(GameList)os.readObject();
+            os.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        input = new Scanner(System.in);//take this out later
+
+
         gameController = new controllerView();
         gameView = new chess_board_view(gameController);
         copyController = new controllerView();//for checkmate
@@ -58,7 +78,7 @@ public class GameActivity extends AppCompatActivity {
         gameView.printBoard();
         gameView.printPrompt();
 
-        ImageButton undoButton = (ImageButton) findViewById(R.id.undo_button);
+        ImageButton undoButton = findViewById(R.id.undo_button);
         undoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -283,7 +303,7 @@ public class GameActivity extends AppCompatActivity {
                 noMistake = gameView.acceptArg(strInput);
                 strInput = "";
             }
-            ;//took an input from board now reset it for next input
+            //took an input from board now reset it for next input
 
 
 
