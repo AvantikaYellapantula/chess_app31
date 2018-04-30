@@ -23,9 +23,15 @@ public class Game implements Serializable{
         calendrier.set(Calendar.MILLISECOND, 0);
 
     }
+    public String toString(){
+        return "Title : "+this.Title+"\n"+" Date : "+this.calendrier.getTime().toString();
+    }
+    public List<Move> getAllMoves(){
+        return this.allMoves;
+    }
 
 
-    class SortbyDate implements Comparator<Game>
+    static class SortbyDate implements Comparator<Game>
     {
 
         @Override
@@ -40,7 +46,7 @@ public class Game implements Serializable{
 
     }
 
-    class SortbyTitle implements Comparator<Game>
+    static class SortbyTitle implements Comparator<Game>
     {
 
         @Override

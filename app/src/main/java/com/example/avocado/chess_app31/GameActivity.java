@@ -1,7 +1,9 @@
 package com.example.avocado.chess_app31;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,14 +12,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.URI;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GameActivity extends AppCompatActivity {
+import static com.example.avocado.chess_app31.GameList.getData;
 
+public class GameActivity extends AppCompatActivity {
+    final Context thisScreen = this;
     static String fileName = "file";
+
     private static GameList gamelist;
+    private static Game game;
 
     public boolean firstSelect = true;
     public boolean drawAllowed=false;
@@ -35,15 +50,33 @@ public class GameActivity extends AppCompatActivity {
     controllerView gameController;
     chess_board_view gameView;
     controllerView copyController;
+<<<<<<< HEAD
     private int board_grid;
     private int hi;
+=======
+>>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamescreen);
+        gamelist = new GameList();
 
-        input = new Scanner(System.in);//take this out later
+
+        try {
+            FileInputStream fis= openFileInput("games.dat");
+            ObjectInputStream os = new ObjectInputStream(fis);
+           gamelist=(GameList)os.readObject();
+            os.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
         gameController = new controllerView();
         gameView = new chess_board_view(gameController);
         copyController = new controllerView();//for checkmate
@@ -51,7 +84,7 @@ public class GameActivity extends AppCompatActivity {
         gameView.printBoard();
         gameView.printPrompt();
 
-        ImageButton undoButton = (ImageButton) findViewById(R.id.undo_button);
+        ImageButton undoButton = findViewById(R.id.undo_button);
         undoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,7 +190,7 @@ public class GameActivity extends AppCompatActivity {
                     Toast.makeText(GameActivity.this, "White in checkmate, Black wins ",
                             Toast.LENGTH_SHORT).show();
 
-                              /*
+/*
                             System.out.println("Enter a name for the game played");
 
                             String title = input.nextLine();
@@ -167,7 +200,7 @@ public class GameActivity extends AppCompatActivity {
                             gamelist.getGameList().add(game); //add the game to overall list of games
 
                             GameList.Save(gamelist); //save this game to list of all games played
-                              */
+*/
 
                     // System.exit(0);
                     gameController.isGameOver = true;
@@ -238,6 +271,12 @@ public class GameActivity extends AppCompatActivity {
 
     public void changeBoardImages(){
 
+        int l= gameController.board.allMoves.size()-1;
+        Move m=gameController.board.allMoves.get(l);
+
+        m.currTile=currTile;
+        m.targetTile=targetTile;
+
         targetTile.setImageDrawable(currTile.getDrawable());
         currTile.setImageDrawable(null);
 
@@ -276,7 +315,7 @@ public class GameActivity extends AppCompatActivity {
                 noMistake = gameView.acceptArg(strInput);
                 strInput = "";
             }
-            ;//took an input from board now reset it for next input
+            //took an input from board now reset it for next input
 
 
 
@@ -328,30 +367,42 @@ public class GameActivity extends AppCompatActivity {
     }
 
 
+
+    public void goToStoreScreen(){
+
+        game = new Game(gameController.board.allMoves, "");
+        Intent storeGame = new Intent(thisScreen, storeActivity.class);
+       storeGame.putExtra("game",game );
+       storeGame.putExtra("gameList",gamelist);
+        startActivity(storeGame);
+      //  return;
+    }
+
     public void handleInput(View selectTile) { //does not handle promotion yet
 
         if(gameController.whiteResigned==true){
             Toast.makeText(GameActivity.this, "White resigned black wins",
                     Toast.LENGTH_SHORT).show();
-            return;
+
+            goToStoreScreen();
         }
         if(gameController.blackResigned==true){
             Toast.makeText(GameActivity.this, "Black resigned white wins",
                     Toast.LENGTH_SHORT).show();
-            return;
+            goToStoreScreen();
         }
 
         if(gameController.isGameOver==true&&gameView.draw==true){
             Toast.makeText(GameActivity.this, "Game is finished, with a draw",
                     Toast.LENGTH_SHORT).show();
-            return;
+            goToStoreScreen();
 
         }
 
         if (gameController.isGameOver == true) {
             Toast.makeText(GameActivity.this, "Game is finished",
                     Toast.LENGTH_SHORT).show();
-            return;
+            goToStoreScreen();
         }
 
         if (firstSelect == true) {
