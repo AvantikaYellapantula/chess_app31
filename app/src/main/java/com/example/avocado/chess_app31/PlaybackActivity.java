@@ -67,9 +67,9 @@ public class PlaybackActivity extends AppCompatActivity {
                 index++;
               Move m=allMoves.get(index);
 
-<<<<<<< HEAD
+
            //currTile= getResources().
-=======
+
           sFile =m.startTile.coordinate.m_file;
           sRank =m.startTile.coordinate.m_rank;
 
@@ -80,7 +80,7 @@ public class PlaybackActivity extends AppCompatActivity {
           getSView();
 
           getEView();
->>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
+
 
 
            GridLayout grid= (GridLayout)findViewById(R.id.board_grid);
