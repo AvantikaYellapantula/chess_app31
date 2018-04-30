@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -23,7 +24,9 @@ import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 import static com.example.avocado.chess_app31.GameList.getData;
 
@@ -34,11 +37,16 @@ public class GameActivity extends AppCompatActivity {
     private static GameList gamelist;
     private static Game game;
 
+    private Stack<ImageView> undoImagesStack;
+
+    private List<ImageView> undoImagesList;
+
     public boolean firstSelect = true;
     public boolean drawAllowed=false;
     public boolean drawPressed=false;
 
-
+    public boolean aiFlag=false;
+    public boolean undoFlag=false;
 
     public String strInput = "";
 
@@ -50,15 +58,10 @@ public class GameActivity extends AppCompatActivity {
     controllerView gameController;
     chess_board_view gameView;
     controllerView copyController;
-<<<<<<< HEAD
-    private int board_grid;
-    private int hi;
-=======
 
     private int board_grid;
     private int hi;
 
->>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +84,8 @@ public class GameActivity extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
+        undoImagesList= new ArrayList<ImageView>();
+        undoImagesStack= new Stack<ImageView>();
         gameController = new controllerView();
         gameView = new chess_board_view(gameController);
         copyController = new controllerView();//for checkmate
@@ -90,6 +93,18 @@ public class GameActivity extends AppCompatActivity {
         gameView.printBoard();
         gameView.printPrompt();
 
+
+        ImageButton aiButton = findViewById(R.id.ai_button);
+        aiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent startGame = new Intent(thisScreen, GameActivity.class);
+                // //startActivity(startGame);
+                strInput = "AI";
+                aiFlag=true;
+                runInput();
+            }
+        });
         ImageButton undoButton = findViewById(R.id.undo_button);
         undoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +112,7 @@ public class GameActivity extends AppCompatActivity {
                 // Intent startGame = new Intent(thisScreen, GameActivity.class);
                 // //startActivity(startGame);
                 strInput = "undo";
+                undoFlag=true;
                 runInput();
             }
         });
@@ -275,17 +291,88 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
+    public int getImageViews(int sFile,int sRank){
+        int count = 0;
+
+        for(int i=0; i<8;i++){
+
+            for(int j=0; j<8;j++){
+                if(i==sFile&&j==sRank){
+                    return count;
+                }
+                count++;
+
+            }
+
+        }
+        return count;
+    }
+
     public void changeBoardImages(){
 
-      //  int l= gameController.board.allMoves.size()-1;
-       // Move m=gameController.board.allMoves.get(l);
+        if(aiFlag==true){
+            aiFlag=false;//flick off
+            Move m=gameController.board.allMoves.get(gameController.board.allMoves.size()-1); //get most recent move
+            int sFile =m.startTile.coordinate.m_file;
+            int sRank =m.startTile.coordinate.m_rank;
 
-      //  m.currTile=currTile;
-        // m.targetTile=targetTile;
+            int eFile=m.endTile.coordinate.m_file;
+            int eRank =m.endTile.coordinate.m_rank;
 
-        targetTile.setImageDrawable(currTile.getDrawable());
-        currTile.setImageDrawable(null);
 
+            int cView=getImageViews(sFile,sRank);
+            int eView=getImageViews(eFile,eRank);
+            GridLayout grid= (GridLayout)findViewById(R.id.board_grid);
+            ImageView currTile= (ImageView) grid.getChildAt(cView);
+            ImageView targetTile=(ImageView) grid.getChildAt(eView);
+
+            undoImagesStack.push(targetTile);
+            undoImagesStack.push(currTile);
+
+            undoImagesList.add(targetTile);
+            undoImagesList.add(currTile);
+
+            targetTile.setImageDrawable(currTile.getDrawable());
+            currTile.setImageDrawable(null);
+
+        }
+       else if(undoFlag==true){
+            undoFlag=false; //flick off
+            if(undoImagesList.size()<2){
+                Toast.makeText(GameActivity.this, "There are no moves to undo",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if(undoImagesStack.size()<2){
+                Toast.makeText(GameActivity.this, "There are no moves to undo",
+                        Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+
+           // ImageView currTile=undoImagesStack.pop();
+            //ImageView targetTile= undoImagesStack.pop();
+            ImageView currTile= undoImagesList.get(undoImagesList.size()-1);
+            ImageView targetTile= undoImagesList.get(undoImagesList.size()-2);
+
+            currTile.setImageDrawable(targetTile.getDrawable());
+            targetTile.setImageDrawable(null);
+
+
+
+        }
+
+        else {
+            undoImagesStack.push(targetTile);
+            undoImagesStack.push(currTile);
+
+            undoImagesList.add(targetTile);
+            undoImagesList.add(currTile);
+
+            targetTile.setImageDrawable(currTile.getDrawable());
+            currTile.setImageDrawable(null);
+
+        }
     }
 
 
