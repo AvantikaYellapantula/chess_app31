@@ -3,19 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
 
     <ImageButton
         android:id="@+id/undo_button"
+<<<<<<< HEAD
         android:layout_width="69dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="4dp"
+=======
+        android:layout_width="64dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+>>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
         android:onClick="handleInput"
-        app:layout_constraintBottom_toTopOf="@+id/board_grid"
+        app:layout_constraintBottom_toBottomOf="@+id/turnLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/undo" />
@@ -26,8 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
         android:onClick="handleInput"
+<<<<<<< HEAD
+=======
+        app:layout_constraintBottom_toBottomOf="@+id/turnLabel"
+>>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ai" />
@@ -36,34 +48,42 @@
         android:id="@+id/draw_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Draw"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/acceptDrawBtn" />
 
     <Button
         android:id="@+id/resign_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:text="Resign"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent" />
+=======
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/board" />
+>>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
 
     <ImageView
         android:id="@+id/board"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="72dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="364dp"
+        android:layout_height="367dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,15 +94,13 @@
         android:id="@+id/board_grid"
         android:layout_width="362dp"
         android:layout_height="357dp"
-        android:layout_marginBottom="73dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="8dp"
         app:columnCount="8"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/board"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rowCount="8">
@@ -610,6 +628,7 @@
 
     <TextView
         android:id="@+id/turnLabel"
+<<<<<<< HEAD
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="29dp"
@@ -617,12 +636,28 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+=======
+        android:layout_width="89dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="White's Move"
+        app:layout_constraintBottom_toTopOf="@+id/board"
+        app:layout_constraintEnd_toStartOf="@+id/undo_button"
+        app:layout_constraintStart_toEndOf="@+id/ai_button"
+        app:layout_constraintTop_toTopOf="parent"
+>>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
         tools:text="White's Move" />
 
     <Button
         android:id="@+id/acceptDrawBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_marginEnd="36dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="36dp"
@@ -633,6 +668,19 @@
         app:layout_constraintHorizontal_bias="0.76"
         app:layout_constraintStart_toEndOf="@+id/ai_button"
         app:layout_constraintTop_toTopOf="parent"
+=======
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text=" "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/resign_button"
+        app:layout_constraintStart_toEndOf="@+id/draw_button"
+        app:layout_constraintTop_toBottomOf="@+id/board_grid"
+>>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
         tools:text="acceptDraw" />
 
 </android.support.constraint.ConstraintLayout>
