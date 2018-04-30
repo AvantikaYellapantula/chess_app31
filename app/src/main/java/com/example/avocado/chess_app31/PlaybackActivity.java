@@ -48,10 +48,15 @@ public class PlaybackActivity extends AppCompatActivity {
 
                 index++;
               Move m=allMoves.get(index);
-              currTile=m.currTile;
-              targetTile=m.targetTile;
-              targetTile.setImageDrawable(currTile.getDrawable());
-              currTile.setImageDrawable(null);
+           int a=   m.startTile.coordinate.m_file;
+           int b=m.endTile.coordinate.m_file;
+
+           currTile= getResources().
+
+             // currTile=m.currTile;
+             // targetTile=m.targetTile;
+             // targetTile.setImageDrawable(currTile.getDrawable());
+              //currTile.setImageDrawable(null);
 
 
             }

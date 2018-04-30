@@ -14,8 +14,8 @@ public class Move implements Serializable {
 
     Tile startTile;
     Tile endTile;
-    public ImageView currTile;
-    public ImageView targetTile;
+   // public ImageView currTile;
+    //public ImageView targetTile;
     //targetTile.setImageDrawable(currTile.getDrawable());
     //    currTile.setImageDrawable(null);
 //ImageView currTile,ImageView targetTile

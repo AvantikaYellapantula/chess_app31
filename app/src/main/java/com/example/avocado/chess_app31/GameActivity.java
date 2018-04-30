@@ -28,7 +28,7 @@ import java.util.Scanner;
 import static com.example.avocado.chess_app31.GameList.getData;
 
 public class GameActivity extends AppCompatActivity {
-    final Context thisScreen = this;
+    public transient Context thisScreen = this;
     static String fileName = "file";
 
     private static GameList gamelist;
@@ -60,9 +60,11 @@ public class GameActivity extends AppCompatActivity {
 
         try {
             FileInputStream fis= openFileInput("games.dat");
-            ObjectInputStream os = new ObjectInputStream(fis);
-           gamelist=(GameList)os.readObject();
-            os.close();
+            if(fis.available()!=0) {
+                ObjectInputStream os = new ObjectInputStream(fis);
+                gamelist = (GameList) os.readObject();
+                os.close();
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -266,11 +268,11 @@ public class GameActivity extends AppCompatActivity {
 
     public void changeBoardImages(){
 
-        int l= gameController.board.allMoves.size()-1;
-        Move m=gameController.board.allMoves.get(l);
+      //  int l= gameController.board.allMoves.size()-1;
+       // Move m=gameController.board.allMoves.get(l);
 
-        m.currTile=currTile;
-        m.targetTile=targetTile;
+      //  m.currTile=currTile;
+        // m.targetTile=targetTile;
 
         targetTile.setImageDrawable(currTile.getDrawable());
         currTile.setImageDrawable(null);
