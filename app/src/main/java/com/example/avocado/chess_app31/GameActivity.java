@@ -50,8 +50,15 @@ public class GameActivity extends AppCompatActivity {
     controllerView gameController;
     chess_board_view gameView;
     controllerView copyController;
+<<<<<<< HEAD
     private int board_grid;
     private int hi;
+=======
+
+    private int board_grid;
+    private int hi;
+
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
