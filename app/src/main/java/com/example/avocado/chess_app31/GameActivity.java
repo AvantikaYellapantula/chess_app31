@@ -50,11 +50,8 @@ public class GameActivity extends AppCompatActivity {
     controllerView gameController;
     chess_board_view gameView;
     controllerView copyController;
-<<<<<<< HEAD
     private int board_grid;
     private int hi;
-=======
->>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -370,6 +367,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
     public void goToStoreScreen(){
 
         game = new Game(gameController.board.allMoves, "");
@@ -433,4 +431,3 @@ public class GameActivity extends AppCompatActivity {
     }
 
 }
-

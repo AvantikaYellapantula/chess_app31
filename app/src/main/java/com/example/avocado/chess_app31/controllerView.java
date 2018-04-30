@@ -83,11 +83,6 @@ public class controllerView {
 		boolean isValidMove=false;
 		String promo=null;
 		//PairCoordinate start=new PairCoordinate(file,rank);
-
-
-
-
-
 		//PairCoordinate end= new PairCoordinate(fileEnd,rankEnd);
 		char[] letters= {'a','b','c','d','e','f','g','h'};
 		char[] nums= {'1','2','3','4','5','6','7','8'};
@@ -155,10 +150,4 @@ public class controllerView {
 		return board.whiteTurn;
 	}
 
-	
-	
-	
-	
-	
-	
 }

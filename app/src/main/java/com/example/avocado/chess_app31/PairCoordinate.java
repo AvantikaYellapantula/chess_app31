@@ -244,9 +244,4 @@ public class PairCoordinate implements Serializable {
 		return tempRank;
 	}
 
-
-
-
-
-
 }

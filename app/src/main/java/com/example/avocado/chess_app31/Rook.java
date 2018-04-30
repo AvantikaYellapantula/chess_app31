@@ -5,13 +5,8 @@
  */
 package com.example.avocado.chess_app31;
 
-
-
-
 public class Rook extends Piece{
 
-	
-	
 	
 public String type = "R";
 
@@ -63,10 +58,7 @@ boolean isFirstMove=true;
 	 else {
 		 return false;
 	 }
-	
-	
-	
-	
+
 	}
 
 }

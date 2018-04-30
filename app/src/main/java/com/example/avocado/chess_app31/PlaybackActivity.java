@@ -51,7 +51,7 @@ public class PlaybackActivity extends AppCompatActivity {
            int a=   m.startTile.coordinate.m_file;
            int b=m.endTile.coordinate.m_file;
 
-           currTile= getResources().
+           //currTile= getResources().
 
              // currTile=m.currTile;
              // targetTile=m.targetTile;

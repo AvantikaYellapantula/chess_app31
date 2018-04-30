@@ -9,20 +9,14 @@
 
     <ImageButton
         android:id="@+id/undo_button"
-<<<<<<< HEAD
-        android:layout_width="69dp"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="4dp"
-=======
+
+
         android:layout_width="64dp"
         android:layout_height="65dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
->>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
         android:onClick="handleInput"
         app:layout_constraintBottom_toBottomOf="@+id/turnLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,15 +27,14 @@
         android:id="@+id/ai_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
         android:onClick="handleInput"
-<<<<<<< HEAD
-=======
+
         app:layout_constraintBottom_toBottomOf="@+id/turnLabel"
->>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ai" />
 
     <Button
@@ -67,12 +60,9 @@
         android:layout_marginTop="8dp"
         android:text="Resign"
         app:layout_constraintBottom_toBottomOf="parent"
-<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent" />
-=======
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/board" />
->>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
 
     <ImageView
         android:id="@+id/board"
@@ -628,18 +618,10 @@
 
     <TextView
         android:id="@+id/turnLabel"
-<<<<<<< HEAD
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="29dp"
-        android:text="White's Move"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-=======
-        android:layout_width="89dp"
-        android:layout_height="30dp"
+        android:layout_width="151dp"
+        android:layout_height="23dp"
         android:layout_marginBottom="8dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -647,40 +629,44 @@
         android:layout_marginTop="8dp"
         android:text="White's Move"
         app:layout_constraintBottom_toTopOf="@+id/board"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/undo_button"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ai_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
->>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
+        app:layout_constraintVertical_bias="0.545"
         tools:text="White's Move" />
 
     <Button
         android:id="@+id/acceptDrawBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="36dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="36dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text=" "
-        app:layout_constraintEnd_toStartOf="@+id/undo_button"
-        app:layout_constraintHorizontal_bias="0.76"
-        app:layout_constraintStart_toEndOf="@+id/ai_button"
+
+        android:text="Accept Draw"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toStartOf="@+id/resign_button"
+        app:layout_constraintHorizontal_bias="0.967"
+        app:layout_constraintStart_toEndOf="@+id/draw_button"
+        app:layout_constraintTop_toBottomOf="@+id/board_grid"
         app:layout_constraintTop_toTopOf="parent"
-=======
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="acceptDraw" />
+        <!--android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text=" "
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/resign_button"
-        app:layout_constraintStart_toEndOf="@+id/draw_button"
-        app:layout_constraintTop_toBottomOf="@+id/board_grid"
->>>>>>> b4de4d288330d74d4d1b4ce4016bcc7a55fbd71b
-        tools:text="acceptDraw" />
+        android:text=" "-->
+
+
+
 
 </android.support.constraint.ConstraintLayout>

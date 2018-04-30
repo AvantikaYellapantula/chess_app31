@@ -17,10 +17,7 @@ import java.util.List;
 
 public class GameList implements Serializable{
 
-
-
     private static final long serialVersionUID = 9098326388219881911L;
-
 
     public static final String storeFile = "users.store";
     //public static final String storeDir = "/store";
