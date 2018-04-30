@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/undo_button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="69dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
@@ -17,7 +17,6 @@
         android:onClick="handleInput"
         app:layout_constraintBottom_toTopOf="@+id/board_grid"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/home_button"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/undo" />
 
@@ -25,13 +24,10 @@
         android:id="@+id/ai_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="78dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="78dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="5dp"
         android:onClick="handleInput"
-        app:layout_constraintEnd_toStartOf="@+id/home_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ai" />
@@ -57,19 +53,6 @@
         android:text="Resign"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageButton
-        android:id="@+id/home_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
-        android:layout_marginTop="5dp"
-        android:onClick="handleInput"
-        app:layout_constraintEnd_toStartOf="@+id/undo_button"
-        app:layout_constraintStart_toEndOf="@+id/ai_button"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home" />
 
     <ImageView
         android:id="@+id/board"
@@ -629,18 +612,27 @@
         android:id="@+id/turnLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
         android:text="White's Move"
-        tools:layout_editor_absoluteX="151dp"
-        tools:layout_editor_absoluteY="463dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="White's Move" />
 
     <Button
         android:id="@+id/acceptDrawBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text=" "
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="447dp"
+        app:layout_constraintEnd_toStartOf="@+id/undo_button"
+        app:layout_constraintHorizontal_bias="0.76"
+        app:layout_constraintStart_toEndOf="@+id/ai_button"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="acceptDraw" />
 
 </android.support.constraint.ConstraintLayout>

@@ -36,7 +36,7 @@ public class GameActivity extends AppCompatActivity {
     chess_board_view gameView;
     controllerView copyController;
     private int board_grid;
-    private int ;
+    private int hi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
