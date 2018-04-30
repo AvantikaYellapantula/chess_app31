@@ -9,6 +9,12 @@
 
     <ImageButton
         android:id="@+id/undo_button"
+<<<<<<< HEAD
+        android:layout_marginBottom="8dp"
+
+
+=======
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
         android:layout_width="64dp"
         android:layout_height="65dp"
         android:layout_marginBottom="8dp"
@@ -23,13 +29,26 @@
     <ImageButton
         android:id="@+id/ai_button"
         android:layout_width="wrap_content"
+<<<<<<< HEAD
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:onClick="handleInput"
+
+=======
         android:layout_height="63dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+<<<<<<< HEAD
+=======
+        android:onClick="handleInput"
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
+>>>>>>> 3b04bd45125dcf7658796873a81341f2d48b866c
         app:layout_constraintBottom_toBottomOf="@+id/turnLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ai" />
 
     <Button
@@ -55,8 +74,14 @@
         android:layout_marginTop="8dp"
         android:text="Resign"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
+        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/board" />
+=======
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/board_grid" />
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
 
     <ImageView
         android:id="@+id/board"
@@ -613,9 +638,15 @@
 
     <TextView
         android:id="@+id/turnLabel"
+<<<<<<< HEAD
+        android:layout_width="151dp"
+        android:layout_height="23dp"
+=======
         android:layout_width="89dp"
         android:layout_height="30dp"
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
         android:layout_marginBottom="8dp"
+
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -623,9 +654,16 @@
         android:layout_marginTop="8dp"
         android:text="White's Move"
         app:layout_constraintBottom_toTopOf="@+id/board"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/undo_button"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/ai_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< HEAD
+        app:layout_constraintVertical_bias="0.545"
+=======
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
         tools:text="White's Move" />
 
     <Button
@@ -633,16 +671,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+<<<<<<< HEAD
+        android:layout_marginEnd="36dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:text="Accept Draw"
+=======
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="acceptDraw"
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toStartOf="@+id/resign_button"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toEndOf="@+id/draw_button"
         app:layout_constraintTop_toBottomOf="@+id/board_grid"
+<<<<<<< HEAD
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+=======
+>>>>>>> da8253628884601a9357f1916a72ad92577ce7c5
         tools:text="acceptDraw" />
+        <!--android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text=" "-->
+
+
+
 
 </android.support.constraint.ConstraintLayout>

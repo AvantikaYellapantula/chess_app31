@@ -59,7 +59,8 @@ public class GameActivity extends AppCompatActivity {
     chess_board_view gameView;
     controllerView copyController;
 
-
+    private int board_grid;
+    private int hi;
 
 
     @Override
@@ -460,6 +461,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
     public void goToStoreScreen(){
 
         game = new Game(gameController.board.allMoves, "");
@@ -523,4 +525,3 @@ public class GameActivity extends AppCompatActivity {
     }
 
 }
-
