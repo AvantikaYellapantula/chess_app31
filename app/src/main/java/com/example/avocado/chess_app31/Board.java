@@ -23,7 +23,7 @@ public class Board {
 
 	public Board() {
 		game_board = new Tile[8][8];
-		allMoves= new ArrayList<Move>();
+		allMoves = new ArrayList<Move>();
 		whiteTurn = true;
 		this.initialize_board();
 
@@ -288,31 +288,94 @@ public class Board {
 						&& this.game_board[kingLoc.m_rank - 1][kingLoc.m_file + 2].piece.color == false) {
 					return true;
 				}
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
 				if (this.game_board[kingLoc.m_rank - 2][kingLoc.m_file + 1].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank - 2][kingLoc.m_file + 1].piece.color == false) {
 					return true;
 				}
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
 				if (this.game_board[kingLoc.m_rank - 2][kingLoc.m_file - 1].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank - 2][kingLoc.m_file - 1].piece.color == false) {
 					return true;
 				}
+
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+
+			try {
+
 				if (this.game_board[kingLoc.m_rank - 1][kingLoc.m_file - 2].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank - 1][kingLoc.m_file - 2].piece.color == false) {
 					return true;
 				}
 
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+
+			try {
+
 				if (this.game_board[kingLoc.m_rank + 1][kingLoc.m_file - 2].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank + 1][kingLoc.m_file - 2].piece.color == false) {
 					return true;
 				}
+
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
+
 				if (this.game_board[kingLoc.m_rank + 1][kingLoc.m_file + 2].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank - 1][kingLoc.m_file + 2].piece.color == false) {
 					return true;
 				}
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
 				if (this.game_board[kingLoc.m_rank + 2][kingLoc.m_file - 1].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank + 2][kingLoc.m_file - 1].piece.color == false) {
 					return true;
 				}
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
 				if (this.game_board[kingLoc.m_rank + 2][kingLoc.m_file + 1].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank + 2][kingLoc.m_file + 1].piece.color == false) {
 					return true;
@@ -324,9 +387,7 @@ public class Board {
 			}
 			// finally the L shape path check sigh *********************
 
-		}
-
-		else {// if its black turn then we look out for white pieces tryna kill black king
+		} else {// if its black turn then we look out for white pieces tryna kill black king
 			for (int i = kingLoc.m_file + 1; i < 8; i++) { // horizontal check right of king
 				if (this.game_board[kingLoc.m_rank][i].isEmpty() == false) {
 					if (this.game_board[kingLoc.m_rank][i].piece.color == true) {
@@ -511,49 +572,127 @@ public class Board {
 						&& this.game_board[kingLoc.m_rank - 1][kingLoc.m_file + 2].piece.color == true) {
 					return true;
 				}
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
 				if (this.game_board[kingLoc.m_rank - 2][kingLoc.m_file + 1].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank - 2][kingLoc.m_file + 1].piece.color == true) {
 					return true;
 				}
+
+
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
+
+			}
+
+			try {
 				if (this.game_board[kingLoc.m_rank - 2][kingLoc.m_file - 1].piece instanceof Knight
 						&& this.game_board[kingLoc.m_rank - 2][kingLoc.m_file - 1].piece.color == true) {
 					return true;
 				}
-				if (this.game_board[kingLoc.m_rank - 1][kingLoc.m_file - 2].piece instanceof Knight
-						&& this.game_board[kingLoc.m_rank - 1][kingLoc.m_file - 2].piece.color == true) {
-					return true;
-				}
 
-				if (this.game_board[kingLoc.m_rank + 1][kingLoc.m_file - 2].piece instanceof Knight
-						&& this.game_board[kingLoc.m_rank + 1][kingLoc.m_file - 2].piece.color == true) {
-					return true;
-				}
-				if (this.game_board[kingLoc.m_rank + 1][kingLoc.m_file + 2].piece instanceof Knight
-						&& this.game_board[kingLoc.m_rank + 1][kingLoc.m_file + 2].piece.color == true) {
-					return true;
-				}
-				if (this.game_board[kingLoc.m_rank + 2][kingLoc.m_file - 1].piece instanceof Knight
-						&& this.game_board[kingLoc.m_rank + 2][kingLoc.m_file - 1].piece.color == true) {
-					return true;
-				}
-				if (this.game_board[kingLoc.m_rank + 2][kingLoc.m_file + 1].piece instanceof Knight
-						&& this.game_board[kingLoc.m_rank + 2][kingLoc.m_file + 1].piece.color == true) {
-					return true;
-				}
-			}
 
-			catch (IndexOutOfBoundsException e) {
+			} catch (IndexOutOfBoundsException e) {
+
+			} catch (NullPointerException e) {
 
 			}
 
-			catch (NullPointerException e) {
-
+		try{
+			if (this.game_board[kingLoc.m_rank - 1][kingLoc.m_file - 2].piece instanceof Knight
+					&& this.game_board[kingLoc.m_rank - 1][kingLoc.m_file - 2].piece.color == true) {
+				return true;
 			}
 
 		}
 
-		return false;// end for both white or black king
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		catch (NullPointerException e) {
+
+		}
+
+
+		try{
+			if (this.game_board[kingLoc.m_rank + 1][kingLoc.m_file - 2].piece instanceof Knight
+					&& this.game_board[kingLoc.m_rank + 1][kingLoc.m_file - 2].piece.color == true) {
+				return true;
+			}
+
+		}
+
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		catch (NullPointerException e) {
+
+		}
+
+		try{
+
+			if (this.game_board[kingLoc.m_rank + 1][kingLoc.m_file + 2].piece instanceof Knight
+					&& this.game_board[kingLoc.m_rank + 1][kingLoc.m_file + 2].piece.color == true) {
+				return true;
+			}
+
+
+		}
+
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		catch (NullPointerException e) {
+
+		}
+
+		try{
+			if (this.game_board[kingLoc.m_rank + 2][kingLoc.m_file - 1].piece instanceof Knight
+					&& this.game_board[kingLoc.m_rank + 2][kingLoc.m_file - 1].piece.color == true) {
+				return true;
+			}
+
+
+		}
+
+		catch (IndexOutOfBoundsException e) {
+
+		}
+
+		catch (NullPointerException e) {
+
+		}
+
+
+		try{
+			if (this.game_board[kingLoc.m_rank + 2][kingLoc.m_file + 1].piece instanceof Knight
+					&& this.game_board[kingLoc.m_rank + 2][kingLoc.m_file + 1].piece.color == true) {
+				return true;
+			}
+		}
+
+			catch(IndexOutOfBoundsException e){
+
+		}
+
+			catch(NullPointerException e){
+
+		}
+
 	}
+
+		return false;// end for both white or black king
+}
 
 	/**
 	 * Gets the king's location
