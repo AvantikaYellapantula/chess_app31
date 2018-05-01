@@ -354,6 +354,8 @@ public class GameActivity extends AppCompatActivity {
 
         }
         else if(undoFlag==true){
+            Toast.makeText(GameActivity.this, "only allowed one undo per turn please do not click again",
+                    Toast.LENGTH_SHORT).show();
             undoFlag=false; //flick off
             if(undoImagesList.size()<2){
                 Toast.makeText(GameActivity.this, "There are no moves to undo",
