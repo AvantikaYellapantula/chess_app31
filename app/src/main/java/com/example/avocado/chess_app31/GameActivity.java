@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
 
-import static com.example.avocado.chess_app31.GameList.getData;
+
 
 public class GameActivity extends AppCompatActivity {
     public transient Context thisScreen = this;
@@ -136,15 +136,21 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Intent startGame = new Intent(thisScreen, GameActivity.class);
                 // //startActivity(startGame);
-               if(drawAllowed==true&&gameView.draw==true) {
-                   strInput = "draw";
-                   runInput();
-               }
-               else{
-                   Toast.makeText(GameActivity.this, "A draw must be offered first!!!",
-                           Toast.LENGTH_SHORT).show();
-                   return;
-               }
+                if(drawAllowed==true&&gameView.draw==true) {
+                    strInput = "draw";
+                    runInput();
+                    if(gameController.isGameOver==true&&gameView.draw==true){
+                        Toast.makeText(GameActivity.this, "Game is finished, with a draw",
+                                Toast.LENGTH_SHORT).show();
+                        goToStoreScreen();
+
+                    }
+                }
+                else{
+                    Toast.makeText(GameActivity.this, "A draw must be offered first!!!",
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
             }
         });
@@ -156,7 +162,21 @@ public class GameActivity extends AppCompatActivity {
                 // Intent startGame = new Intent(thisScreen, GameActivity.class);
                 // //startActivity(startGame);
                 strInput = "resign";
+
                 runInput();
+
+                String color="";
+                if(gameController.isWhiteTurn()){
+                    color="white player resigned, black wins";
+                }
+                else{
+                    color="black player resigned, white wins";
+                }
+
+                Toast.makeText(GameActivity.this,color,
+                        Toast.LENGTH_SHORT).show();
+
+                goToStoreScreen();
             }
         });
 
@@ -212,20 +232,9 @@ public class GameActivity extends AppCompatActivity {
                     Toast.makeText(GameActivity.this, "White in checkmate, Black wins ",
                             Toast.LENGTH_SHORT).show();
 
-/*
-                            System.out.println("Enter a name for the game played");
 
-                            String title = input.nextLine();
-
-                            Game game = new Game(gameController.board.allMoves, title);
-
-                            gamelist.getGameList().add(game); //add the game to overall list of games
-
-                            GameList.Save(gamelist); //save this game to list of all games played
-*/
-
-                    // System.exit(0);
                     gameController.isGameOver = true;
+                    goToStoreScreen();
                 } else {
                     System.out.println("Check");
                     // Toast.makeText(GameActivity.this, "White in check ",
@@ -277,7 +286,9 @@ public class GameActivity extends AppCompatActivity {
 
                             GameList.Save(gamelist); //save this game to list of all games played
                             */
+
                     gameController.isGameOver = true;
+                    goToStoreScreen();
                 } else {
                     System.out.println("Check");
                     Toast.makeText(GameActivity.this, "Black in check ",
@@ -333,10 +344,11 @@ public class GameActivity extends AppCompatActivity {
             undoImagesList.add(currTile);
 
             targetTile.setImageDrawable(currTile.getDrawable());
+
             currTile.setImageDrawable(null);
 
         }
-       else if(undoFlag==true){
+        else if(undoFlag==true){
             undoFlag=false; //flick off
             if(undoImagesList.size()<2){
                 Toast.makeText(GameActivity.this, "There are no moves to undo",
@@ -350,7 +362,7 @@ public class GameActivity extends AppCompatActivity {
             }
 
 
-           // ImageView currTile=undoImagesStack.pop();
+            // ImageView currTile=undoImagesStack.pop();
             //ImageView targetTile= undoImagesStack.pop();
             ImageView currTile= undoImagesList.get(undoImagesList.size()-1);
             ImageView targetTile= undoImagesList.get(undoImagesList.size()-2);
@@ -466,32 +478,15 @@ public class GameActivity extends AppCompatActivity {
 
         game = new Game(gameController.board.allMoves, "");
         Intent storeGame = new Intent(thisScreen, storeActivity.class);
-       storeGame.putExtra("game",game );
-       storeGame.putExtra("gameList",gamelist);
+        storeGame.putExtra("game",game );
+        storeGame.putExtra("gameList",gamelist);
         startActivity(storeGame);
-      //  return;
+        //  return;
     }
 
     public void handleInput(View selectTile) { //does not handle promotion yet
 
-        if(gameController.whiteResigned==true){
-            Toast.makeText(GameActivity.this, "White resigned black wins",
-                    Toast.LENGTH_SHORT).show();
 
-            goToStoreScreen();
-        }
-        if(gameController.blackResigned==true){
-            Toast.makeText(GameActivity.this, "Black resigned white wins",
-                    Toast.LENGTH_SHORT).show();
-            goToStoreScreen();
-        }
-
-        if(gameController.isGameOver==true&&gameView.draw==true){
-            Toast.makeText(GameActivity.this, "Game is finished, with a draw",
-                    Toast.LENGTH_SHORT).show();
-            goToStoreScreen();
-
-        }
 
         if (gameController.isGameOver == true) {
             Toast.makeText(GameActivity.this, "Game is finished",
@@ -514,7 +509,7 @@ public class GameActivity extends AppCompatActivity {
             strInput = strInput + " " + tileSpot.substring(tileSpot.length() - 2);//get full input string
             firstSelect = true;//flick switch
 
-           //turn off the draw since the player choose to make a move instead of accept
+            //turn off the draw since the player choose to make a move instead of accept
 
             drawAllowed=false;
             runInput();

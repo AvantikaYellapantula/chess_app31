@@ -8,17 +8,19 @@
 package com.example.avocado.chess_app31;
 
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class controllerView {
 
-	
+
 	public Board board;
 	Board copyBoard;
 	public boolean isGameOver;
 	public boolean whiteResigned;
 	public boolean blackResigned;
-	
-	
+
+
 	public controllerView() {
 		this.board= new Board();
 		this.isGameOver=false;
@@ -26,14 +28,14 @@ public class controllerView {
 
 
 	/*public void isDraw() {
-		 isGameOver=true; //not used 
-		 
+		 isGameOver=true; //not used
+
 	}
-	
+
 	public void Resign() {
 	    isGameOver=true;//not used
-	    
-	    
+
+
 	}
 	*/
 
@@ -106,7 +108,16 @@ public class controllerView {
 
 
 						if(isValidMove==true) {
-							board=copyBoard;//hmmm //otherwise chnage board to this shit
+
+							List<Move> boardMoves;
+							boardMoves=board.allMoves; //keep list of moves
+							Move aiMove=copyBoard.allMoves.get(copyBoard.allMoves.size()-1);
+							board=copyBoard;
+							board.allMoves=boardMoves;
+							//board.allMoves.add(aiMove);
+
+							//hmmm //otherwise chnage board to this shit
+
 							break;
 						}
 
@@ -123,16 +134,16 @@ public class controllerView {
 
 
 	}
-	
+
 	/**
 	 * this method gets the board
 	 *
 	 * @param
 	 * @return string/toString
 	 */
-	
+
 	public String getBoard() {
-	
+
 		String str= this.board.toString();
 		if(str==null) {
 			System.out.print("no board");
