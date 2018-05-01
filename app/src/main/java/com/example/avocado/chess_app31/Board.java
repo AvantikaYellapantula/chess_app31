@@ -679,6 +679,7 @@ public class Board {
 				}
 			}
 
+			    special.Castling=false;//get rid of special cases
 			if (special.Castling == true) {
 				Piece backupStart = this.game_board[start.m_rank][start.m_file].piece;
 				Piece backupEnd = this.game_board[end.m_rank][end.m_file].piece;
@@ -836,7 +837,7 @@ public class Board {
 				return false;
 
 			}
-
+			special.enPassant=false;
 			if (special.enPassant == true) {
 
 				Piece backupStart = this.game_board[start.m_rank][start.m_file].piece;
@@ -989,7 +990,7 @@ public class Board {
 				return false;
 
 			}
-
+			special.isPromoting=false;
 			if (special.isPromoting == true) {
 				Piece backupStart = this.game_board[start.m_rank][start.m_file].piece;
 				Piece backupEnd = this.game_board[end.m_rank][end.m_file].piece;

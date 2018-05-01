@@ -2,6 +2,7 @@ package com.example.avocado.chess_app31;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -343,9 +344,13 @@ public class GameActivity extends AppCompatActivity {
             undoImagesList.add(targetTile);
             undoImagesList.add(currTile);
 
-            targetTile.setImageDrawable(currTile.getDrawable());
 
+
+
+            targetTile.setImageDrawable(currTile.getDrawable());
             currTile.setImageDrawable(null);
+
+
 
         }
         else if(undoFlag==true){
@@ -367,8 +372,12 @@ public class GameActivity extends AppCompatActivity {
             ImageView currTile= undoImagesList.get(undoImagesList.size()-1);
             ImageView targetTile= undoImagesList.get(undoImagesList.size()-2);
 
+            Drawable temp=currTile.getDrawable();
+
             currTile.setImageDrawable(targetTile.getDrawable());
-            targetTile.setImageDrawable(null);
+            targetTile.setImageDrawable(temp);
+
+
 
 
 

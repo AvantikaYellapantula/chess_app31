@@ -20,7 +20,7 @@ public class Pawn extends Piece{
 	/**
 	 * Overrides the toString Method
 	 *
-	 * @param none
+
 	 * @return String color+type
 	 */
 	public String toString() {
@@ -39,7 +39,7 @@ public class Pawn extends Piece{
     /**
 	 * This method gives the 'ok' to make the move in terms of distance. It uses the distance formula to check whether the bishop can move in the user-desired direction. 
 	 *
-	 * @param PairCoordinate start, PairCoordinate end,allCases specialCase
+	 * irCoordinate end,allCases specialCase
 	 * @return boolean false/true, whether it's 'ok' to move
 	 */
 	public boolean isOkMove(PairCoordinate start, PairCoordinate end,allCases specialCase) {
@@ -52,10 +52,7 @@ public class Pawn extends Piece{
 			
 			 if((start.m_rank==end.m_rank+1 && start.m_file+1==end.m_file) || (start.m_rank==end.m_rank+1 && start.m_file-1==end.m_file) ) {
 					//return true;
-				 if(end.m_rank==0) {
-					  specialCase.isPromoting=true;
-					  //return true;//has made it to promotion 
-				  }
+
 				 return true;
 			  }
 			
@@ -71,10 +68,7 @@ public class Pawn extends Piece{
 			
 			if((start.m_rank+1==end.m_rank && start.m_file+1==end.m_file) || (start.m_rank+1==end.m_rank && start.m_file-1==end.m_file) ) {
 				//return true;
-				if(end.m_rank==7) {
-					  specialCase.isPromoting=true;
-					
-				  }
+
 				return true;
 	         }
 			
@@ -95,12 +89,12 @@ public class Pawn extends Piece{
 	  if(color==true) {
 		 
 		  if(start.m_rank==6) {//white pawn start
-			    specialCase.isFirstMove=true;
+			 specialCase.isFirstMove=true;
 			  //  specialCase.checkEnPassant=true;
 		  }
 		  if(end.m_rank==0) {
-			  specialCase.isPromoting=true;
-			  return true;//has made it to promotion 
+			//  specialCase.isPromoting=true;
+		//	  return true;//has made it to promotion
 		  }
 		  
 	  }
@@ -110,11 +104,7 @@ public class Pawn extends Piece{
 			  specialCase.isFirstMove=true;
 			 // specialCase.checkEnPassant=true;
 		  }
-		  if(end.m_rank==7) {
-			  specialCase.isPromoting=true;
-			  return true;
-			  
-		  }
+
 	  }
       
        if(specialCase.isFirstMove==true) { //FIRST MOVE
@@ -132,7 +122,7 @@ public class Pawn extends Piece{
         	}
     		
     		if( start.m_rank + 2 == end.m_rank &&color==false&&specialCase.isFirstMove==true){
-    			enpassantFlag=true;//only if it moves two spaces then set 
+    			enpassantFlag=true;//only if it moves two spaces then set
     			return true;
     		}
     		if( start.m_rank - 2 == end.m_rank &&color==true&&specialCase.isFirstMove==true) {
@@ -158,12 +148,12 @@ public class Pawn extends Piece{
     		}
     		
     		if((start.m_file+1==end.m_file && start.m_rank+1==end.m_rank) ) {
-    					specialCase.enPassant=true;
+    				//	specialCase.enPassant=true;
     					return true;
     				}
     		if((start.m_file-1==end.m_file && start.m_rank+1==end.m_rank) ) {
     			
-    					specialCase.enPassant=true;
+    				//	specialCase.enPassant=true;
     					return true;
     				
     			
@@ -182,14 +172,14 @@ public class Pawn extends Piece{
     		
     		if((start.m_file+1==end.m_file && start.m_rank-1==end.m_rank) ) {
     			
-    					specialCase.enPassant=true;
+    				//	specialCase.enPassant=true;
     					return true;
     				}
     		
     		if((start.m_file-1==end.m_file && start.m_rank-1==end.m_rank) ) {
-    			
-    					specialCase.enPassant=true;
-    					return true;
+
+    			//		specialCase.enPassant=true;
+    				return true;
     				}
     			
     		
