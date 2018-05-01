@@ -122,11 +122,11 @@ public class Pawn extends Piece{
         	}
     		
     		if( start.m_rank + 2 == end.m_rank &&color==false&&specialCase.isFirstMove==true){
-    			enpassantFlag=true;//only if it moves two spaces then set
+    		//	enpassantFlag=true;//only if it moves two spaces then set
     			return true;
     		}
     		if( start.m_rank - 2 == end.m_rank &&color==true&&specialCase.isFirstMove==true) {
-    			enpassantFlag=true;
+    		//	enpassantFlag=true;
     			return true;
     		}
     		
@@ -147,17 +147,7 @@ public class Pawn extends Piece{
    
     		}
     		
-    		if((start.m_file+1==end.m_file && start.m_rank+1==end.m_rank) ) {
-    				//	specialCase.enPassant=true;
-    					return true;
-    				}
-    		if((start.m_file-1==end.m_file && start.m_rank+1==end.m_rank) ) {
-    			
-    				//	specialCase.enPassant=true;
-    					return true;
-    				
-    			
-    		}
+    	
     		
     		
     		
@@ -170,17 +160,9 @@ public class Pawn extends Piece{
     			return true;
     			}
     		
-    		if((start.m_file+1==end.m_file && start.m_rank-1==end.m_rank) ) {
-    			
-    				//	specialCase.enPassant=true;
-    					return true;
-    				}
-    		
-    		if((start.m_file-1==end.m_file && start.m_rank-1==end.m_rank) ) {
 
-    			//		specialCase.enPassant=true;
-    				return true;
-    				}
+    		
+
     			
     		
     		//(start.m_file-1==end.m_file && start.m_rank-1==end.m_rank)

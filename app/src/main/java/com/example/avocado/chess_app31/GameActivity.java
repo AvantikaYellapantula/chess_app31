@@ -3,6 +3,7 @@ package com.example.avocado.chess_app31;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -338,8 +339,7 @@ public class GameActivity extends AppCompatActivity {
             ImageView currTile= (ImageView) grid.getChildAt(cView);
             ImageView targetTile=(ImageView) grid.getChildAt(eView);
 
-            undoImagesStack.push(targetTile);
-            undoImagesStack.push(currTile);
+
 
             undoImagesList.add(targetTile);
             undoImagesList.add(currTile);
@@ -360,11 +360,6 @@ public class GameActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
                 return;
             }
-            if(undoImagesStack.size()<2){
-                Toast.makeText(GameActivity.this, "There are no moves to undo",
-                        Toast.LENGTH_SHORT).show();
-                return;
-            }
 
 
             // ImageView currTile=undoImagesStack.pop();
@@ -372,23 +367,32 @@ public class GameActivity extends AppCompatActivity {
             ImageView currTile= undoImagesList.get(undoImagesList.size()-1);
             ImageView targetTile= undoImagesList.get(undoImagesList.size()-2);
 
-            Drawable temp=currTile.getDrawable();
+            Drawable currDr=currTile.getDrawable();
+            Drawable targDr=targetTile.getDrawable();
 
             currTile.setImageDrawable(targetTile.getDrawable());
-            targetTile.setImageDrawable(temp);
+            targetTile.setImageDrawable(null);
 
-
+            if(undoImagesList.size()>=2) {
+                undoImagesList.remove(undoImagesList.size() - 2);
+                undoImagesList.remove(undoImagesList.size() - 1);
+            }
 
 
 
         }
 
         else {
-            undoImagesStack.push(targetTile);
-            undoImagesStack.push(currTile);
+            if(undoImagesList.size()>=2) {
+                undoImagesList.remove(undoImagesList.size() - 2);
+                undoImagesList.remove(undoImagesList.size() - 1);
+            }
 
             undoImagesList.add(targetTile);
             undoImagesList.add(currTile);
+
+            Drawable currDr=currTile.getDrawable();
+            Drawable targDr=targetTile.getDrawable();
 
             targetTile.setImageDrawable(currTile.getDrawable());
             currTile.setImageDrawable(null);
