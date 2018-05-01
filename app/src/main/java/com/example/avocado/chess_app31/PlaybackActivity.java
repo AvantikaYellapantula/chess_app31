@@ -87,7 +87,6 @@ public class PlaybackActivity extends AppCompatActivity {
            ImageView currTile= (ImageView) grid.getChildAt(sView);
            ImageView targetTile=(ImageView) grid.getChildAt(eView);
 
-
              targetTile.setImageDrawable(currTile.getDrawable());
              currTile.setImageDrawable(null);
 
