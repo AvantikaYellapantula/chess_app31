@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,6 +45,16 @@ public class ListActivity extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+
+        if(games==null){
+            Toast.makeText(ListActivity.this, "you must first play some games and save, can not view empty list!",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(thisScreen, HomeActivity.class); //need to make a class for this
+            startActivity(intent);
+        return;
+        }
+
         Game[] gameArray = new Game[games.size()];
 
         ArrayAdapter<Game> adapter = new ArrayAdapter<Game>(this, android.R.layout.simple_list_item_1, (Game[]) games.toArray(gameArray));
